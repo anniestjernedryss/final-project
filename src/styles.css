@@ -12,6 +12,7 @@ body {
   margin-bottom: 10px;
 }
 .currentWeather {
+  max-width: 600px;
   display: block;
   border: 0px solid transparent;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
@@ -35,6 +36,9 @@ body {
 }
 
 .futurePredictions {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
   font-size: 18px;
   transition: all 200ms ease-in-out;
 }
