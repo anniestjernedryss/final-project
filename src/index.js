@@ -29,6 +29,10 @@ function showTemperature(response) {
   document.getElementById("weather-description").innerHTML =
     response.data.weather[0].description;
   document.getElementById("celsius-link").innerHTML = "°C";
+  document.getElementById("humidity-description").innerHTML =
+    response.data.main.humidity;
+  document.getElementById("wind-description").innerHTML =
+    response.data.wind.speed;
 }
 
 function findPosition(position) {
