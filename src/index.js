@@ -33,6 +33,11 @@ function showTemperature(response) {
     response.data.main.humidity;
   document.getElementById("wind-description").innerHTML =
     response.data.wind.speed;
+  let currentIcon = document.querySelector("#current-icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function findPosition(position) {
@@ -60,6 +65,11 @@ function showNewTemperature(response) {
     response.data.main.humidity;
   document.getElementById("wind-description").innerHTML =
     response.data.wind.speed;
+  let currentIcon = document.querySelector("#current-icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function findNewLocation(position) {
