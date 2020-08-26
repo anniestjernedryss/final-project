@@ -14,7 +14,6 @@ function formatDate(date) {
   let currentMinutes = date.getMinutes();
   currentMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
   let formattedDate = ` ${currentDay} ${currentHours}:${currentMinutes}`;
-  console.log(formattedDate);
 
   return formattedDate;
 }
