@@ -13,6 +13,7 @@ body {
 }
 .currentWeather {
   max-width: 600px;
+  height: 320px;
   display: block;
   border: 0px solid transparent;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
