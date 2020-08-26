@@ -88,7 +88,7 @@ function showTemperatureinF(event) {
   event.preventDefault();
   let temperatureNow = document.querySelector("#temperature-now");
   let farenheitTemp = (celciusTemperature * 9) / 5 + 32;
-  temperatureNow.innerHTML = math.round(farenheitTemp);
+  temperatureNow.innerHTML = Math.round(farenheitTemp);
 }
 
 let farenheitLink = document.querySelector("#fahrenheit-link");
