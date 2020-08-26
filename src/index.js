@@ -83,9 +83,12 @@ let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", findNewLocation);
 
 let celsiusTemperature = null;
+
 function showTemperatureinF(event) {
   event.preventDefault();
   let temperatureNow = document.querySelector("#temperature-now");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
   let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureNow.innerHTML = Math.round(farenheitTemp);
 }
@@ -95,6 +98,8 @@ farenheitLink.addEventListener("click", showTemperatureinF);
 
 function showTemperatureInC(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let temperatureNow = document.querySelector("#temperature-now");
   temperatureNow.innerHTML = Math.round(celsiusTemperature);
 }

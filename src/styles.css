@@ -34,6 +34,7 @@ body {
 .currentWeather h4 {
   font-weight: lighter;
 }
+
 #temperature-now {
   font-size: 30px;
 }
@@ -57,7 +58,15 @@ h4 {
 }
 #unit-links {
   display: inline;
+  color: black;
+  cursor: default;
 }
 #unit-links :hover {
+  cursor: default;
+}
+#unit-links .active {
+  color: black;
+}
+#unit-links .active:hover {
   text-decoration: none;
 }
