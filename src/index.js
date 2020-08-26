@@ -21,6 +21,7 @@ let todayDate = new Date();
 document.getElementById("date").innerHTML = formatDate(todayDate);
 
 function showTemperature(response) {
+  celciusTemperature = response.data.main.temp;
   document.getElementById("temperature-now").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -53,6 +54,7 @@ function clickForPosition(event) {
 let locationNow = document.querySelector("#location-now");
 locationNow.addEventListener("click", clickForPosition);
 function showNewTemperature(response) {
+  celciusTemperature = response.data.main.temp;
   document.getElementById("temperature-now").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -81,3 +83,15 @@ function findNewLocation(position) {
 
 let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", findNewLocation);
+
+function showTemperatureinF(event) {
+  event.preventDefault();
+  let temperatureNow = document.querySelector("#temperature-now");
+  let farenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  temperatureNow.innerHTML = math.round(farenheitTemp);
+}
+
+let farenheitLink = document.querySelector("#fahrenheit-link");
+farenheitLink.addEventListener("click", showTemperatureinF);
+
+let celciusTemperature = null;
