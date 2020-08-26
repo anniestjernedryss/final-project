@@ -34,7 +34,7 @@ body {
 .currentWeather h4 {
   font-weight: lighter;
 }
-.tempNummbers {
+#temperature-now {
   font-size: 30px;
 }
 .futurePredictions {
@@ -55,9 +55,9 @@ body {
 h4 {
   font-size: 14px;
 }
-.units {
+#unit-links {
   display: inline;
 }
-.units :hover {
+#unit-links :hover {
   text-decoration: none;
 }
