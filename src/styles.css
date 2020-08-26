@@ -63,10 +63,12 @@ h4 {
 }
 #unit-links :hover {
   cursor: default;
+  text-decoration: none;
 }
 #unit-links .active {
   color: black;
 }
 #unit-links .active:hover {
   text-decoration: none;
+  cursor: default;
 }
