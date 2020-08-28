@@ -50,12 +50,8 @@ body {
   display: block;
   margin: 0 auto;
 }
-.futurePredictions .row :hover {
-  cursor: crosshair;
-  background-color: #50a7c2;
-}
 h4 {
-  font-size: 14px;
+  font-size: 17px;
 }
 #unit-links {
   display: inline;
@@ -72,4 +68,10 @@ h4 {
 #unit-links .active:hover {
   text-decoration: none;
   cursor: default;
+}
+footer {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: 100%;
 }

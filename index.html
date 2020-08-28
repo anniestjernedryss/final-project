@@ -25,7 +25,7 @@
           <div class="form-row">
             <div class="col-sm-4">
               <input
-                type="text" id="search-box"
+                type="text" autocomplete="off" id="search-box"
                 class="form-control"
                 placeholder="Find a city 🔍"
               />
@@ -41,40 +41,21 @@
         <img id="current-icon"
      src="https://i.ibb.co/0m6PdT9/background.png"><span id="temperature-now"> </span> <h4 id="unit-links"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link">°F </a></h4>
         <h4 id="weather-description"> </h4>
-        <h4 id="precipitation">Precipitation: <span id="precipitation-description"> </span></h4>
         <h4 id="humidity">Humidity: <span id="humidity-description"></span>%</h4>
         <h4 id="wind">Wind: <span id="wind-description"></span> Km/h</h4>
       </span>
       <br />
-      <div class="futurePredictions">
-        <div class="row">
-          <div class="col-sm-3">
-            <span id="prediction-tomorrow">Tomorrow</span> <br /><span class="gridText"
+    <div class="futurePredictions">
+        <div class="row" id="forecast">
+          <div class="col-sm-2">
+            <span id="future-time"></span> <br /><span class="gridText"
               ><stong>29°</stong>/17° <br />
-              <i class="fas fa-cloud-moon-rain"></i><br
+              <img id="current-icon"
+     src="https://i.ibb.co/6N3mb5J/icons.png"><br
             /></span>
           </div>
-          <div class="col-sm-3">
-            <span id="prediction-day-after"></span> <br /><span class="gridText"
-              ><stong>25°</stong>/14° <br />
-              <i class="fas fa-cloud-sun"></i><br
-            /></span>
-          </div>
-          <div class="col-sm-3">
-            <span id="prediction-after2"></span> <br /><span class="gridText"
-              ><stong>26°</stong>/17° <br />
-              <i class="fas fa-bolt"></i
-            ></span>
-          </div>
-          <div class="col-sm-3">
-            <span id="prediction-after3"></span> <br /><span class="gridText"
-              ><stong>25°</stong>/19° <br />
-              <i class="fas fa-cloud-showers-heavy"></i><br
-            /></span>
-          </div>
-        </div>
-      </div>
       <br />
+
       <footer><small><a href="https://github.com/anniestjernedryss/final-project">open source code</a> by Anna Herran ✨</small></footer>
     </div>
     <script src="src/index.js">

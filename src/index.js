@@ -70,13 +70,18 @@ function showNewTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-
+function displayForecast(response) {
+  console.log(response.data);
+}
 function findNewLocation(position) {
   position.preventDefault();
   let cityName = document.getElementById("search-box").value;
   let apiKey = "8c9200a40049e7bb8503a1495379e720";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&&units=metric`;
   axios.get(apiUrl).then(showNewTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?id=${cityName}&appid=${apiKey}&&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let searchEngine = document.querySelector("#search-engine");
