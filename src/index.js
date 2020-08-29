@@ -52,6 +52,7 @@ function clickForPosition(event) {
 }
 let locationNow = document.querySelector("#location-now");
 locationNow.addEventListener("click", clickForPosition);
+
 function showNewTemperature(response) {
   celsiusTemperature = response.data.main.temp;
   document.getElementById("temperature-now").innerHTML = Math.round(
@@ -67,11 +68,24 @@ function showNewTemperature(response) {
   let currentIcon = document.querySelector("#current-icon");
   currentIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 function displayForecast(response) {
-  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+
+  forecastElement.innerHTML = `<div class="col-sm-2">
+            <span id="future-time"></span> <br /><span class="gridText"
+              ><strong id="high-temp">${Math.round(
+                forecast.main.temp_max
+              )}°</strong> / <span id="low-temp">${Math.round(
+    forecast.main.temp_min
+  )}°</span> <br />
+              <img id="current-icon" src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"><br /></span>
+          </div>`;
 }
 function findNewLocation(position) {
   position.preventDefault();
@@ -79,8 +93,7 @@ function findNewLocation(position) {
   let apiKey = "8c9200a40049e7bb8503a1495379e720";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&&units=metric`;
   axios.get(apiUrl).then(showNewTemperature);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?id=${cityName}&appid=${apiKey}&&units=metric`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 

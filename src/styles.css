@@ -1,6 +1,11 @@
 body {
   padding-top: 30px;
-  background-color: #f5f5f4;
+  background-color: linear-gradient(
+    to top,
+    #c4c5c7 0%,
+    #dcdddf 52%,
+    #ebebeb 100%
+  );
 }
 .searchBar {
   position: fixed;
@@ -35,7 +40,10 @@ body {
 .currentWeather h4 {
   font-weight: lighter;
 }
-
+.currentWeather #current-icon {
+  width: 80px;
+  height: 80px;
+}
 #temperature-now {
   font-size: 30px;
 }
@@ -49,6 +57,10 @@ body {
 .futurePredictions .fas {
   display: block;
   margin: 0 auto;
+}
+.futurePredictions #current-icon {
+  width: 50px;
+  height: 50px;
 }
 h4 {
   font-size: 17px;
