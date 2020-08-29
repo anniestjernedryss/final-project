@@ -83,21 +83,24 @@ function showNewTemperature(response) {
 }
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.list[0];
-
-  forecastElement.innerHTML = `<div class="col-sm-2">
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 6; index++) {
+    let forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="col-sm-2">
             <span id="future-time">${formatHours(
-              forecast.dt
+              forecast.dt * 1000
             )}</span> <br /><span class="gridText"
               ><strong id="high-temp">${Math.round(
                 forecast.main.temp_max
               )}°</strong> / <span id="low-temp">${Math.round(
-    forecast.main.temp_min
-  )}°</span> <br />
+      forecast.main.temp_min
+    )}°</span> <br />
               <img id="current-icon" src="https://openweathermap.org/img/wn/${
                 forecast.weather[0].icon
               }@2x.png"><br /></span>
           </div>`;
+  }
 }
 function findNewLocation(position) {
   position.preventDefault();
