@@ -20,6 +20,14 @@ function formatDate(date) {
 let todayDate = new Date();
 document.getElementById("date").innerHTML = formatDate(todayDate);
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let currentMinutes = date.getMinutes();
+  currentMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
+  return `${hours}:${currentMinutes}`;
+}
+
 function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
   document.getElementById("temperature-now").innerHTML = Math.round(
@@ -45,6 +53,8 @@ function findPosition(position) {
   let apiKey = "8c9200a40049e7bb8503a1495379e720";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function clickForPosition(event) {
   event.preventDefault();
@@ -76,7 +86,9 @@ function displayForecast(response) {
   let forecast = response.data.list[0];
 
   forecastElement.innerHTML = `<div class="col-sm-2">
-            <span id="future-time"></span> <br /><span class="gridText"
+            <span id="future-time">${formatHours(
+              forecast.dt
+            )}</span> <br /><span class="gridText"
               ><strong id="high-temp">${Math.round(
                 forecast.main.temp_max
               )}°</strong> / <span id="low-temp">${Math.round(
